@@ -9,3 +9,17 @@
   background: url(./assets/wallpaper1.jpg) no-repeat center;
   background-size: cover;
 }
+
+/* Home Screen  */
+
+.slider {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}

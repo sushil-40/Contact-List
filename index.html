@@ -24,7 +24,7 @@
       class="wrapper min-vh-100 d-flex justify-content-center align-items-center"
     >
       <div
-        class="phone border border-5 border-black bg-white rounded-5 shadow-lg"
+        class="phone overflow-y-scroll-hidden border border-5 border-black rounded-5 shadow-lg"
         style="height: 500px; width: 300px"
       >
         <!-- top time and network section  -->
@@ -34,9 +34,33 @@
           style="height: 50px; padding: 10px"
         >
           <span>12:12</span>
-          <div>ee</div>
-          <div>sf</div>
+          <div class="bg-black w-25 rounded-pill" style="height: 1.4rem"></div>
+          <div>
+            <i class="bi bi-wifi"></i>
+            <i class="bi bi-bar-chart-fill"></i>
+            <i class="bi bi-battery-half"></i>
+          </div>
         </div>
+
+        <!-- Home Screen  -->
+        <main class="homeScreen h-100 p-2 position-relative">
+          <div
+            class="slide-container bg-white p-3 rounded-4 shadow position-absolute"
+            style="top: 350px"
+          >
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value="0"
+              class="slider"
+              id="mySlider"
+            />
+            <label id="label" class="">Slide To Unlock</label>
+          </div>
+
+          A
+        </main>
       </div>
     </div>
 
