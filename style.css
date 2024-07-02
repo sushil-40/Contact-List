@@ -23,3 +23,59 @@
 .slider:hover {
   opacity: 1;
 }
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(
+    rgba(231, 70, 231, 0.733),
+    rgba(221, 67, 67, 0.726)
+  );
+}
+
+.slider::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(
+    rgba(231, 70, 231, 0.733),
+    rgba(221, 67, 67, 0.726)
+  );
+}
+
+.custom-scrollbar {
+  overflow-y: scroll;
+  /* Hide the scrollbar */
+  scrollbar-width: none; /* For Firefox */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+#label {
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+
+  animation: slideAnimation 3s ease-in-out infinite;
+}
+
+@keyframes slideAnimation {
+  0%,
+  100% {
+    color: #000;
+    filter: drop-shadow(0 0 10px purple);
+  }
+  50% {
+    color: purple;
+    filter: drop-shadow(0 0 10px purple);
+  }
+}
