@@ -10,6 +10,9 @@
   background-size: cover;
 }
 
+.phone::-webkit-scrollbar {
+  display: none;
+}
 /* Home Screen  */
 
 .slider {
@@ -48,15 +51,13 @@
   );
 }
 
-.custom-scrollbar {
+/* .custom-scrollbar {
   overflow-y: scroll;
   /* Hide the scrollbar */
-  scrollbar-width: none; /* For Firefox */
-}
+/* scrollbar-width: none; /* For Firefox */
 
-.custom-scrollbar::-webkit-scrollbar {
+/* .custom-scrollbar::-webkit-scrollbar {
   display: none; /* For Chrome, Safari, and Opera */
-}
 
 #label {
   top: 50%;
