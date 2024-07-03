@@ -1,4 +1,4 @@
-const apiEP = "https://randomuser.me/api?results=2";
+const apiEP = "https://randomuser.me/api?results=4";
 
 let userList = [];
 
@@ -51,6 +51,84 @@ const fetchUsers = async (url) => {
   const data = await response.json();
   userList = data.results;
   console.log(userList);
+
+  //hide the spinner
+  document.querySelector(".showSpinner").style.display = "none";
+
+  //show the user
+  displayContactList(userList);
 };
 
 fetchUsers(apiEP);
+
+//display contact list
+const displayContactList = (userList) => {
+  document.getElementById("list").style.display = "block";
+
+  let str = "";
+
+  userList.map((item, index) => {
+    str += `<div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapse${index}"
+                      aria-expanded="false"
+                      aria-controls="collapse${index}"
+                    >
+                      <img
+                        src="${item.picture.large}"
+                        alt=""
+                        width="50px"
+                        class="rounded-circle"
+                      />
+                      <div class="ms-2">
+                        <div class="fw-bolder">${item.name.title} ${item.name.first} ${item.name.last}</div>
+                        <small>${item.location.street.number} ${item.location.street.name} </small>
+                      </div>
+                    </button>
+                  </h2>
+                  <div
+                    id="collapse${index}"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div
+                      class="accordion-body d-flex flex-column align-items-center"
+                    >
+                      <img
+                        src="${item.picture.large}"
+                        alt=""
+                        width="150px"
+                        class="rounded-circle"
+                      />
+                      <div>
+                        <div class="fw-bolder">
+                          <i class="bi bi-person-circle"></i>${item.name.title} ${item.name.first} ${item.name.last}
+                        </div>
+                        <div>
+                          <a href="tel: 53213">
+                            <i class="bi bi-phone"></i> ${item.cell}</a
+                          >
+                        </div>
+                        <div><i class="bi bi-phone"></i>${item.email}</div>
+                        <div>
+                        <a 
+                        href="https://www.google.com/maps/place/${item.location.street.number}+${item.location.street.name}+${item.location.city}+${item.location.state}+${item.location.country}"
+                        target="_blank"
+                          >
+                  
+                          <i class="bi bi-globe-asia-australia"></i> ${item.location.street.number} ${item.location.street.name} 
+                          ${item.location.state}
+
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>`;
+  });
+  document.getElementById("userAccordion").innerHTML = str;
+};
