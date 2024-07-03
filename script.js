@@ -1,3 +1,7 @@
+const apiEP = "https://randomuser.me/api?results=2";
+
+let userList = [];
+
 // slide to go to app screen
 
 const slider = document.getElementById("mySlider");
@@ -23,3 +27,30 @@ const displayScreen = () => {
   //show app screen
   document.querySelector(".appScreen").style.display = "block";
 };
+
+// fetching Data
+
+const fetchUsers = async (url) => {
+  // fetch the users
+  // promise method
+  // fetch(url)
+  //   .then((response) => {
+  //     console.log(response);
+  //     return response.json();
+  //   })
+  //   .then((data) => {
+  //     console.log(data);
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+
+  //async await
+
+  const response = await fetch(url);
+  const data = await response.json();
+  userList = data.results;
+  console.log(userList);
+};
+
+fetchUsers(apiEP);
