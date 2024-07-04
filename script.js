@@ -50,7 +50,7 @@ const fetchUsers = async (url) => {
   const response = await fetch(url);
   const data = await response.json();
   userList = data.results;
-  console.log(userList);
+  // console.log(userList);
 
   //hide the spinner
   document.querySelector(".showSpinner").style.display = "none";
@@ -114,11 +114,12 @@ const displayContactList = (userList) => {
                           >
                         </div>
                         <div><i class="bi bi-phone"></i>${item.email}</div>
-                        <div>
+                       
+                      
                         <a 
                         href="https://www.google.com/maps/place/${item.location.street.number}+${item.location.street.name}+${item.location.city}+${item.location.state}+${item.location.country}"
                         target="_blank"
-                          >
+                        >
                   
                           <i class="bi bi-globe-asia-australia"></i> ${item.location.street.number} ${item.location.street.name} 
                           ${item.location.state}
@@ -131,4 +132,29 @@ const displayContactList = (userList) => {
                 </div>`;
   });
   document.getElementById("userAccordion").innerHTML = str;
+
+  document.getElementById("userCount").innerText = userList.length;
+};
+
+//search contact
+
+document.getElementById("search").addEventListener("keypress", (e) => {
+  const { value } = e.target;
+  const filteredUsers = userList.filter((item) => {
+    const name = (item.name.first + " " + item.name.last).toLowerCase();
+    return name.includes(value.toLowerCase());
+  });
+  // console.log(filteredUsers);
+
+  displayContactList(filteredUsers);
+});
+
+const displayContactScreen = () => {
+  //hide home screen
+  document.querySelector(".appScreen").remove();
+
+  //show app screen
+  document.querySelector(".contactListScreen").style.display = "block";
+
+  fetchUsers(apiEP);
 };

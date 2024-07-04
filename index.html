@@ -43,10 +43,7 @@
         </div>
 
         <!-- Home Screen  -->
-        <main
-          class="homeScreen h-100 p-2 position-relative"
-          style="display: none"
-        >
+        <main class="homeScreen h-100 p-2 position-relative">
           <div
             class="slide-container bg-white p-3 rounded-4 shadow position-relative"
             style="top: 350px"
@@ -75,7 +72,9 @@
             <div class="d-flex flex-column align-items-center p-2">
               <i
                 class="bi bi-person-rolodex text-danger fs-1 bg-white px-2 rounded"
-              ></i>
+                onclick="displayContactScreen()"
+              >
+              </i>
               <span class="text-white">Contact</span>
             </div>
           </div>
@@ -83,7 +82,7 @@
 
         <!-- contact list screen  -->
 
-        <main class="contactListScreen" style="height: 90%">
+        <main class="contactListScreen" style="height: 90%; display: none">
           <div class="conatctListContainer">
             <!-- title  -->
             <h2 class="p-2 fw-bolder text-secondary">Contacts</h2>

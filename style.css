@@ -84,3 +84,7 @@
 .header i {
   right: 10px;
 }
+
+.appScreen {
+  cursor: pointer;
+}
