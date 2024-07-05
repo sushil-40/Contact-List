@@ -185,3 +185,58 @@ sortByFemale.addEventListener("click", () => {
   sortByGender("female");
 });
 console.log(userList);
+
+//Pie charts
+const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+const yValues = [55, 49, 44, 24, 15];
+const barColors = ["#b91d47", "#00aba9", "#2b5797", "#e8c3b9", "#1e7145"];
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [
+      {
+        backgroundColor: barColors,
+        data: yValues,
+      },
+    ],
+  },
+  options: {
+    title: {
+      display: true,
+      text: "World Wide Wine Production 2018",
+    },
+  },
+});
+
+// Get the modal
+const modal = document.getElementById("chartModal");
+
+// Get the icon that opens the modal
+const icon = document.getElementById("showChart");
+
+// Get the <span> element that closes the modal
+const span = document.getElementById("closeModal");
+
+// When the user clicks on the icon, open the modal
+icon.addEventListener("click", () => {
+  modal.style.display = "block";
+});
+
+// When the user hovers over the icon, open the modal
+icon.addEventListener("mouseover", () => {
+  modal.style.display = "block";
+});
+
+// When the user clicks on <span> (x), close the modal
+span.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// When the user clicks anywhere outside of the modal, close it
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+});
