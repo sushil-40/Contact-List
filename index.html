@@ -111,11 +111,23 @@
             <!-- contact list  -->
 
             <div id="list" class="bg-light pt-2" style="display: none">
-              <div class="">
-                <span id="userCount">10 </span>
-                Contact
+              <div class="sortContact d-flex align-items-center">
+                <div class="">
+                  <span id="userCount">10 </span>
+                  Contact
+                </div>
+                <div class="sortBy d-flex">
+                  <small>Sort By: &nbsp; </small>
+                  <div class="sortByGender">
+                    <span class="male" id="male"
+                      ><i class="bi bi-gender-male"></i
+                    ></span>
+                    <span class="female" id="female"
+                      ><i class="bi bi-gender-female"></i
+                    ></span>
+                  </div>
+                </div>
               </div>
-
               <div class="accordion" id="userAccordion"></div>
             </div>
           </div>

@@ -165,3 +165,23 @@ const today = new Date();
 const time = today.getHours() + ":" + today.getMinutes();
 // console.log(time);
 timeNow.append(time);
+
+//Sort By Gender
+
+const sortByGender = (gender) => {
+  const filteredUsers = userList.filter((item) => item.gender === gender);
+  displayContactList(filteredUsers);
+};
+
+// sort by Male
+const sortByMale = document.getElementById("male");
+sortByMale.addEventListener("click", () => {
+  sortByGender("male");
+});
+
+//sort by Female
+const sortByFemale = document.getElementById("female");
+sortByFemale.addEventListener("click", () => {
+  sortByGender("female");
+});
+console.log(userList);

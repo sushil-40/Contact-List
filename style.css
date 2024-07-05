@@ -93,3 +93,21 @@ a {
 .appScreen {
   cursor: pointer;
 }
+
+.sortContact {
+  justify-content: space-around;
+}
+.sortByGender {
+  cursor: pointer;
+  gap: 2px;
+}
+.male:hover {
+  color: blue;
+  transition: all 0.4s ease-in-out;
+  font-size: 15px;
+}
+.female:hover {
+  color: blue;
+  transition: all 0.4s ease-in-out;
+  font-size: 15px;
+}
