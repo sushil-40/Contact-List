@@ -1,4 +1,4 @@
-const apiEP = "https://randomuser.me/api?results=4";
+const apiEP = "https://randomuser.me/api?results=6";
 
 let userList = [];
 
@@ -8,7 +8,7 @@ const slider = document.getElementById("mySlider");
 
 slider.addEventListener("change", (e) => {
   const { value } = e.target;
-  console.log(e.target.value);
+  // console.log(e.target.value);
   const label = document.getElementById("label");
 
   //   alert("you can go to next");
@@ -58,8 +58,6 @@ const fetchUsers = async (url) => {
   //show the user
   displayContactList(userList);
 };
-
-fetchUsers(apiEP);
 
 //display contact list
 const displayContactList = (userList) => {
@@ -115,11 +113,11 @@ const displayContactList = (userList) => {
                         </div>
                         <div><i class="bi bi-phone"></i>${item.email}</div>
                        
-                      
-                        <a 
-                        href="https://www.google.com/maps/place/${item.location.street.number}+${item.location.street.name}+${item.location.city}+${item.location.state}+${item.location.country}"
-                        target="_blank"
-                        >
+             <div>         
+                 <a
+          href="https://www.google.com/maps/place/${item.location.street.number}+${item.location.street.name}+${item.location.city}+${item.location.state}+${item.location.country}"
+          target="_blank"
+        >
                   
                           <i class="bi bi-globe-asia-australia"></i> ${item.location.street.number} ${item.location.street.name} 
                           ${item.location.state}
@@ -138,7 +136,7 @@ const displayContactList = (userList) => {
 
 //search contact
 
-document.getElementById("search").addEventListener("keypress", (e) => {
+document.getElementById("search").addEventListener("keyup", (e) => {
   const { value } = e.target;
   const filteredUsers = userList.filter((item) => {
     const name = (item.name.first + " " + item.name.last).toLowerCase();
