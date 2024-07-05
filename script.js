@@ -156,3 +156,12 @@ const displayContactScreen = () => {
 
   fetchUsers(apiEP);
 };
+
+//Display time in mobile layout
+
+const timeNow = document.getElementById("timeDisplay");
+// console.log(timeNow, "Hello");
+const today = new Date();
+const time = today.getHours() + ":" + today.getMinutes();
+// console.log(time);
+timeNow.append(time);
