@@ -1,4 +1,4 @@
-const apiEP = "https://randomuser.me/api?results=6";
+const apiEP = "https://randomuser.me/api?results=10";
 
 let userList = [];
 
@@ -187,9 +187,12 @@ sortByFemale.addEventListener("click", () => {
 console.log(userList);
 
 //Pie charts
-const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-const yValues = [55, 49, 44, 24, 15];
-const barColors = ["#b91d47", "#00aba9", "#2b5797", "#e8c3b9", "#1e7145"];
+const maleCount = userList.filter((user) => user.gender === "male").length;
+const femaleCount = userList.filter((user) => user.gender === "female").length;
+console.log(maleCount);
+const xValues = ["Male", "Female"];
+const yValues = [maleCount, femaleCount];
+const barColors = ["#b91d47", "#00aba9"];
 
 new Chart("myChart", {
   type: "pie",
@@ -205,7 +208,7 @@ new Chart("myChart", {
   options: {
     title: {
       display: true,
-      text: "World Wide Wine Production 2018",
+      text: "Contact Lists By Gender",
     },
   },
 });
@@ -225,9 +228,9 @@ icon.addEventListener("click", () => {
 });
 
 // When the user hovers over the icon, open the modal
-icon.addEventListener("mouseover", () => {
-  modal.style.display = "block";
-});
+// icon.addEventListener("mouseover", () => {
+//   modal.style.display = "block";
+// });
 
 // When the user clicks on <span> (x), close the modal
 span.addEventListener("click", () => {
