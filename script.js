@@ -2,7 +2,7 @@
 
 const randomNumber = Math.floor(Math.random() * 16) + 10;
 
-console.log(randomNumber);
+// console.log(randomNumber);
 
 const apiEP = `https://randomuser.me/api?results=${randomNumber}`;
 
@@ -168,9 +168,9 @@ const displayContactList = (userList) => {
   document.getElementById("userCount").innerText = userList.length;
 
   maleCount = userList.filter((user) => user.gender === "male").length;
-  console.log("Count Male number:", maleCount);
+  // console.log("Count Male number:", maleCount);
   femaleCount = userList.filter((user) => user.gender === "female").length;
-  console.log("Count FeMale number:", femaleCount);
+  // console.log("Count FeMale number:", femaleCount);
 
   //Pie charts
 
