@@ -244,11 +244,6 @@ icon.addEventListener("click", () => {
   modal.style.display = "block";
 });
 
-// When the user hovers over the icon, open the modal
-// icon.addEventListener("mouseover", () => {
-//   modal.style.display = "block";
-// });
-
 // When the user clicks on <span> (x), close the modal
 span.addEventListener("click", () => {
   modal.style.display = "none";
