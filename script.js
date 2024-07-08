@@ -1,6 +1,13 @@
-const apiEP = "https://randomuser.me/api?results=10";
+//Generate Random number between 10 to 25 for number of contact lists to fetch from API server
+
+const randomNumber = Math.floor(Math.random() * 16) + 10;
+
+console.log(randomNumber);
+
+const apiEP = `https://randomuser.me/api?results=${randomNumber}`;
 
 let userList = [];
+let maleCount, femaleCount;
 
 // slide to go to app screen
 
@@ -57,6 +64,33 @@ const fetchUsers = async (url) => {
 
   //show the user
   displayContactList(userList);
+};
+
+//update the chart function
+
+const updateChart = () => {
+  const xValues = ["Male", "Female"];
+  const yValues = [maleCount, femaleCount];
+  const barColors = ["#b91d47", "#00aba9"];
+
+  new Chart("myChart", {
+    type: "pie",
+    data: {
+      labels: xValues,
+      datasets: [
+        {
+          backgroundColor: barColors,
+          data: yValues,
+        },
+      ],
+    },
+    options: {
+      title: {
+        display: true,
+        text: `Contact Lists By Gender \t  Male count: ${maleCount}, Female count: ${femaleCount}`,
+      },
+    },
+  });
 };
 
 //display contact list
@@ -132,6 +166,15 @@ const displayContactList = (userList) => {
   document.getElementById("userAccordion").innerHTML = str;
 
   document.getElementById("userCount").innerText = userList.length;
+
+  maleCount = userList.filter((user) => user.gender === "male").length;
+  console.log("Count Male number:", maleCount);
+  femaleCount = userList.filter((user) => user.gender === "female").length;
+  console.log("Count FeMale number:", femaleCount);
+
+  //Pie charts
+
+  updateChart();
 };
 
 //search contact
@@ -184,34 +227,8 @@ const sortByFemale = document.getElementById("female");
 sortByFemale.addEventListener("click", () => {
   sortByGender("female");
 });
-console.log(userList);
 
-//Pie charts
-const maleCount = userList.filter((user) => user.gender === "male").length;
-const femaleCount = userList.filter((user) => user.gender === "female").length;
-console.log(maleCount);
-const xValues = ["Male", "Female"];
-const yValues = [maleCount, femaleCount];
-const barColors = ["#b91d47", "#00aba9"];
-
-new Chart("myChart", {
-  type: "pie",
-  data: {
-    labels: xValues,
-    datasets: [
-      {
-        backgroundColor: barColors,
-        data: yValues,
-      },
-    ],
-  },
-  options: {
-    title: {
-      display: true,
-      text: "Contact Lists By Gender",
-    },
-  },
-});
+// Pie Chart
 
 // Get the modal
 const modal = document.getElementById("chartModal");
