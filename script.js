@@ -73,7 +73,7 @@ const updateChart = () => {
   const yValues = [maleCount, femaleCount];
   const barColors = ["#b91d47", "#00aba9"];
 
-  console.log("Updating chart with", { maleCount, femaleCount });
+  // console.log("Updating chart with", { maleCount, femaleCount });
   new Chart("myChart", {
     type: "pie",
     data: {
