@@ -73,6 +73,7 @@ const updateChart = () => {
   const yValues = [maleCount, femaleCount];
   const barColors = ["#b91d47", "#00aba9"];
 
+  console.log("Updating chart with", { maleCount, femaleCount });
   new Chart("myChart", {
     type: "pie",
     data: {
@@ -171,10 +172,6 @@ const displayContactList = (userList) => {
   // console.log("Count Male number:", maleCount);
   femaleCount = userList.filter((user) => user.gender === "female").length;
   // console.log("Count FeMale number:", femaleCount);
-
-  //Pie charts
-
-  updateChart();
 };
 
 //search contact
@@ -213,6 +210,7 @@ timeNow.append(time);
 
 const sortByGender = (gender) => {
   const filteredUsers = userList.filter((item) => item.gender === gender);
+
   displayContactList(filteredUsers);
 };
 
@@ -242,6 +240,8 @@ const span = document.getElementById("closeModal");
 // When the user clicks on the icon, open the modal
 icon.addEventListener("click", () => {
   modal.style.display = "block";
+
+  updateChart();
 });
 
 // When the user clicks on <span> (x), close the modal
