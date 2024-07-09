@@ -226,6 +226,13 @@ sortByFemale.addEventListener("click", () => {
   sortByGender("female");
 });
 
+//list all loaded contact again
+const allContact = document.getElementById("listAllUser");
+// console.log("Available Contact", allContact);
+allContact.addEventListener("click", () => {
+  displayContactList(userList);
+});
+
 // Pie Chart
 
 // Get the modal
